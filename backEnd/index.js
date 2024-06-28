@@ -1,6 +1,9 @@
 const app = require("./app");
-const port = 8000;
+const configs = require("./configs/config")
+const port = configs.port;
 
+
+require("./configs/sequelize")
 
 
 app.listen(port, ()=>{
