@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
 
-const userRoute = require("./routes/userRoute")
+const userRoute = require("./routes/userRoute");
+const linksRoute = require("./routes/linkRoute");
 
 
 app.use(express.json());
 
 
 app.use(userRoute);
+app.use(linksRoute);
 
 
 

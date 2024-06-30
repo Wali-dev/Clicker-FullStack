@@ -8,7 +8,7 @@ const getAllUser = (req, res) => {
 }
 
 const createUser = async (req, res) => {
-    let { userName } = req.params;
+    let { userName } = req.query;
 
     try {
         const user = await createUserProfile(userName);
