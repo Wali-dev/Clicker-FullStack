@@ -4,21 +4,19 @@ const { Sequelize, DataTypes } = require('sequelize');
 const User = sequelize.define(
     'User',
     {
-
         userName: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
-        password: {
-            type: DataTypes.STRING,
+            unique: true,
             allowNull: false,
         },
+        // email: {
+        //     type: DataTypes.STRING,
+        //     unique: true
+        // },
+        // password: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
         profession_main_catagory: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -41,32 +39,27 @@ const User = sequelize.define(
         },
         theme: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         step_completed: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
             defaultValue: 1
-
         },
-        step_completed: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 1
-
-        }
-    },
-    {
+    
 
     }
 );
 
-sequelize.sync({ alter: true })
-    .then(() => {
-        console.log("Model is created successfully!")
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+// sequelize.sync({ alter: true })
+//     .then(() => {
+//         console.log("Model is created successfully!")
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
 
+
+
+module.exports = User;
 // User.drop();
