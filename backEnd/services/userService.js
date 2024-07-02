@@ -19,7 +19,7 @@ module.exports.getOneProfile = async (userName) => {
 };
 
 module.exports.updateUserProfile = async (
-    userName, 
+    userName,
     profession_main_catagory,
     profession_sub_catagory,
     profile_picture,

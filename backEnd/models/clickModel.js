@@ -6,40 +6,74 @@ const Click = sequelize.define(
     {
         userName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         link_id: {
             type: DataTypes.STRING,
-            allowNull: false,
-        },
-        click_date_time: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
-        country: {
-            type: DataTypes.STRING(20),
             allowNull: true,
         },
-        device: {
+        ipAddress: {
             type: DataTypes.STRING(20),
-            allowNull: false,
-            
+            allowNull: true,
+
+        },
+        countryCode: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        countryName: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+
+        region: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        city: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        browser: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        deviceBrand: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        deviceModel: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        deviceFamily: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
         },
 
     },
     {
-        timestamps: false,
+        timestamps: true,
+        updatedAt: false,
         noPrimaryKey: true
-
     }
 );
 
-sequelize.sync({ alter: true })
-    .then(() => {
-        console.log("Model is created successfully!")
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+// sequelize.sync({ alter: true })
+//     .then(() => {
+//         console.log("Model is created successfully!")
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
 
 // Click.drop();
+module.exports = Click;

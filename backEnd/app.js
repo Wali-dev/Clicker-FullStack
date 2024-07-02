@@ -3,6 +3,7 @@ const app = express();
 
 const userRoute = require("./routes/userRoute");
 const linksRoute = require("./routes/linkRoute");
+const clicksRoute = require("./routes/clickRoute");
 
 
 app.use(express.json());
@@ -10,12 +11,13 @@ app.use(express.json());
 
 app.use(userRoute);
 app.use(linksRoute);
+app.use(clicksRoute);
 
 
 
 
 
-app.get("/", (req, res)=>{
+app.get("/", (req, res) => {
     res.send("this is the home")
 })
 
@@ -24,7 +26,7 @@ app.get("/", (req, res)=>{
 
 
 
-app.use((req, res)=>{
+app.use((req, res) => {
     res.send("there is no such route")
 })
 
