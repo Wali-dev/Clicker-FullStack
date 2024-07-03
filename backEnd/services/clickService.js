@@ -1,21 +1,23 @@
 const clickModel = require("../models/clickModel");
 
-module.exports.getSingleLinkClicks = async (userName) => {
+module.exports.getSingleLinkClicks = async (userName, link_id) => {
     try {
-        const links = await linkModel.findAll({ where: { userName } });
-        return links;
+        const clicks = await clickModel.findAll({ where: { userName, link_id } });
+        return clicks;
     } catch (error) {
         console.log(error)
     }
 }
 module.exports.getUserallLinkClicks = async (userName) => {
     try {
-        const links = await linkModel.findAll({ where: { userName } });
+        const links = await clickModel.findAll({ where: { userName } });
         return links;
     } catch (error) {
         console.log(error)
     }
 }
+
+
 module.exports.createLinkClicks = async (userName,
     link_id,
     ipAddress,

@@ -1,4 +1,4 @@
-const { createLinkClicks } = require("../services/clickService");
+const { createLinkClicks, getSingleLinkClicks, getUserallLinkClicks } = require("../services/clickService");
 
 
 const createlinkClick = async (req, res) => {
@@ -7,7 +7,6 @@ const createlinkClick = async (req, res) => {
         ipAddress,
         countryCode,
         countryName,
-        languages,
         region,
         city,
         browser,
@@ -36,9 +35,34 @@ const createlinkClick = async (req, res) => {
     }
 }
 
+const getsingleLinkClick = async (req, res) => {
+
+    let { userName, link_id } = req.query;
+    try {
+
+        const linkClicks = await getSingleLinkClicks(userName, link_id)
+
+        res.status(200).send(linkClicks)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const getUserAllLinkClicks = async (req, res) => {
+
+    let { userName } = req.query;
+    try {
+
+        const linkClicks = await getUserallLinkClicks(userName);
+
+        res.status(200).send(linkClicks)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 
 
 
-module.exports = { createlinkClick }
+module.exports = { createlinkClick, getsingleLinkClick, getUserAllLinkClicks }

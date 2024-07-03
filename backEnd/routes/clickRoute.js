@@ -1,10 +1,13 @@
 const express = require("express");
-const { createlinkClick } = require("../controllers/clickController");
-
 const router = express.Router();
 
+const { createlinkClick, getsingleLinkClick, getUserAllLinkClicks } = require("../controllers/clickController");
 
-router.post("/api/click", createlinkClick);
+
+
+router.post("/", createlinkClick);
+router.get("/", getsingleLinkClick);
+router.get("/all", getUserAllLinkClicks);
 
 
 

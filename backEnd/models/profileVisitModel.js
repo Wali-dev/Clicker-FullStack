@@ -7,40 +7,75 @@ const ProfileVisit = sequelize.define(
         userName: {
             type: DataTypes.STRING,
             allowNull: false,
+            primaryKey: true
         },
-        visiting_time_date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
-        country: {
+        id: {
             type: DataTypes.STRING(20),
             allowNull: true,
         },
-        device: {
-            type: DataTypes.STRING(20),
-            allowNull: false,
-            
-        },
-        visit_duration: {
+        ipAddress: {
             type: DataTypes.STRING(20),
             allowNull: true,
-            
+
+        },
+        countryCode: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        countryName: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
         },
 
+        region: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        city: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        browser: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        deviceBrand: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        deviceModel: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
+        deviceFamily: {
+            type: DataTypes.STRING(20),
+            allowNull: true,
+
+        },
     },
     {
-        timestamps: false,
+        timestamps: true,
+        updatedAt: false,
         noPrimaryKey: true,
 
     }
 );
 
-sequelize.sync({ alter: true })
-    .then(() => {
-        console.log("Model is created successfully!")
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+// sequelize.sync({ alter: true })
+//     .then(() => {
+//         console.log("Model is created successfully!")
+//     })
+//     .catch((err) => {
+//         console.log(err)
+//     })
 
 // ProfileVisit.drop();
+
+module.exports = ProfileVisit;

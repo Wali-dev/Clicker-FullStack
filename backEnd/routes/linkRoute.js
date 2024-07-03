@@ -1,13 +1,12 @@
 const express = require("express");
+const router = express.Router();
+
 const { getUserlinks, createLink, updateLink } = require("../controllers/linkController");
 
 
-
-const router = express.Router();
-
-router.get("/api/links/", getUserlinks)
-router.post("/api/links/", createLink )
-router.patch("/api/links/", updateLink )
+router.get("/", getUserlinks);
+router.post("/", createLink);
+router.patch("/", updateLink);
 
 
 

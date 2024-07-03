@@ -1,14 +1,14 @@
 const express = require("express");
-const {getAllUser, createUser, updateUser } = require("../controllers/userControllers");
-
 const router = express.Router();
 
+const { getAllUser, createUser, updateUser } = require("../controllers/userControllers");
 
 
-router.get("/api/user", getAllUser)
 
-router.post("/api/user", createUser)
-router.patch("/api/user/:userName", updateUser)
+
+router.get("/", getAllUser);
+router.post("/", createUser);
+router.patch("/:userName", updateUser);
 
 
 

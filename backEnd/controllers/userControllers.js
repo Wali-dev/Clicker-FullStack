@@ -27,11 +27,11 @@ const updateUser = async (req, res) => {
         background,
         subscribe_button,
         theme,
-        step_completed} = req?.body;
+        step_completed } = req?.body;
 
     try {
         const user = await updateUserProfile(
-            userName, 
+            userName,
             profession_main_catagory,
             profession_sub_catagory,
             profile_picture,

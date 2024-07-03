@@ -1,30 +1,16 @@
 const express = require("express");
 const app = express();
-
-const userRoute = require("./routes/userRoute");
-const linksRoute = require("./routes/linkRoute");
-const clicksRoute = require("./routes/clickRoute");
-
+const apiRouter = require("./routes/index")
 
 app.use(express.json());
 
 
-app.use(userRoute);
-app.use(linksRoute);
-app.use(clicksRoute);
-
-
-
+app.use("/api", apiRouter);
 
 
 app.get("/", (req, res) => {
     res.send("this is the home")
 })
-
-
-
-
-
 
 app.use((req, res) => {
     res.send("there is no such route")
