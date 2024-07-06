@@ -32,7 +32,6 @@ const updateLink = async (req, res) => {
     let {
         actual_link,
         link_title,
-
         thumbnail,
         active,
         lock,

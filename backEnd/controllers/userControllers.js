@@ -19,7 +19,7 @@ const createUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    const { userName } = req.params;
+    const { userName } = req.query;
 
     let { profession_main_catagory,
         profession_sub_catagory,

@@ -9,14 +9,28 @@ module.exports.getUserallLinks = async (userName) => {
     }
 }
 
-module.exports.getOneLink = async (link_id) =>{
+module.exports.getOneLink = async (link_id) => {
+
     try {
         const link = await linkModel.findOne({ where: { link_id } });
+        return link;
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports.createUserLink = async (userName, link_id) => {
+
+    try {
+        const link = await linkModel.create({ userName, link_id });
         return link;
     } catch (error) {
         console.log(error)
     }
 }
+
+
 
 module.exports.updateUserLink = async (
     userName,
@@ -32,9 +46,9 @@ module.exports.updateUserLink = async (
     time_of_live) => {
 
     try {
-        const linkk = await this.getOneLink(link_id);
+        const linkk = await this.getOneLink(link_id, userName);
         const linkDetails = {
-            userName,  
+            userName,
             actual_link,
             link_title,
             thumbnail,
@@ -46,21 +60,12 @@ module.exports.updateUserLink = async (
             time_of_live
         }
 
-        const updatedLink= await linkk.update({ 
-            ...linkDetails });
+        const updatedLink = await linkk.update({
+            ...linkDetails
+        });
 
         return updatedLink;
 
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-module.exports.createUserLink = async (userName, link_id) => {
-
-    try {
-        const link= await linkModel.create({ userName, link_id});
-        return link;
     } catch (error) {
         console.log(error)
     }

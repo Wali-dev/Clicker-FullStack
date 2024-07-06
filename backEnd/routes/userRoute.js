@@ -8,7 +8,7 @@ const { getAllUser, createUser, updateUser } = require("../controllers/userContr
 
 router.get("/", getAllUser);
 router.post("/", createUser);
-router.patch("/:userName", updateUser);
+router.patch("/", updateUser);
 
 
 

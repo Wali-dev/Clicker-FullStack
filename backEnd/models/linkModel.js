@@ -19,6 +19,7 @@ const Link = sequelize.define(
         link_id: {
             type: DataTypes.STRING,
             allowNull: true,
+            primaryKey: true
         },
         thumbnail: {
             type: DataTypes.STRING,
