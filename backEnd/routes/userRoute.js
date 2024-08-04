@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllUser, createUser, updateUser } = require("../controllers/userControllers");
+const { getAllUser, createUser, updateEmailPassword, updateUser } = require("../controllers/userControllers");
 
 
 
-
+router.post("/register", createUser);
+router.patch("/update", updateUser);
 router.get("/", getAllUser);
-router.post("/", createUser);
-router.patch("/", updateUser);
+
+router.patch("/register", updateEmailPassword);
 
 
 

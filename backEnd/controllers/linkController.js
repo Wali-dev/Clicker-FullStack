@@ -17,9 +17,10 @@ const getUserlinks = async (req, res) => {
 
 const createLink = async (req, res) => {
     let { userName, link_id } = req.query;
+    let { actual_link } = req.body;
 
     try {
-        const link = await createUserLink(userName, link_id);
+        const link = await createUserLink(userName, link_id, actual_link);
         res.status(200).send(link);
     } catch (error) {
         console.log(error)

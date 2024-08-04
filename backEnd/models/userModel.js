@@ -11,11 +11,10 @@ const User = sequelize.define(
         },
         // email: {
         //     type: DataTypes.STRING,
-        //     unique: true
+        //     unique: true,
         // },
         // password: {
         //     type: DataTypes.STRING,
-        //     allowNull: false,
         // },
         profession_main_catagory: {
             type: DataTypes.STRING,
@@ -46,7 +45,7 @@ const User = sequelize.define(
             allowNull: true,
             defaultValue: 1
         },
-    
+
 
     }
 );

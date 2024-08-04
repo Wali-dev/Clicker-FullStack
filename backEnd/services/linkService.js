@@ -20,10 +20,10 @@ module.exports.getOneLink = async (link_id) => {
     }
 }
 
-module.exports.createUserLink = async (userName, link_id) => {
+module.exports.createUserLink = async (userName, link_id, actual_link) => {
 
     try {
-        const link = await linkModel.create({ userName, link_id });
+        const link = await linkModel.create({ userName, link_id, actual_link });
         return link;
     } catch (error) {
         console.log(error)

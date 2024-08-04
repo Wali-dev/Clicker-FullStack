@@ -27,7 +27,7 @@ const Link = sequelize.define(
         },
         active: {
             type: DataTypes.BOOLEAN,
-            allowNull: true,
+            defaultValue: false,
         },
         lock: {
             type: DataTypes.BOOLEAN,
@@ -39,11 +39,11 @@ const Link = sequelize.define(
         },
         deleted: {
             type: DataTypes.BOOLEAN,
-            allowNull: true,
+            defaultValue: false,
         },
         archived: {
             type: DataTypes.BOOLEAN,
-            allowNull: true,
+            defaultValue: false,
         },
         time_of_live: {
             type: DataTypes.STRING(10),

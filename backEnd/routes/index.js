@@ -5,6 +5,7 @@ const userRoute = require("./userRoute");
 const linksRoute = require("./linkRoute");
 const clicksRoute = require("./clickRoute");
 const profileVisitRoute = require("./profileVisitRoute");
+const authRoute = require("./authRoute");
 
 const routers = [
     {
@@ -22,6 +23,11 @@ const routers = [
     {
         path: '/profilevisit',
         router: profileVisitRoute,
+    },
+    {
+        path: '/auth',
+        router: authRoute,
+
     }
 ];
 
@@ -29,5 +35,6 @@ const routers = [
 routers.forEach((routerObject) => {
     apiRouter.use(routerObject.path, routerObject.router);
 });
+
 
 module.exports = apiRouter;

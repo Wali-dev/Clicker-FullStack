@@ -1,6 +1,5 @@
 
-const { createUserProfile, updateUserProfile } = require("../services/userService");
-
+const { createUserProfile, createEmailPassword, updateUserProfile } = require("../services/userService");
 
 
 const getAllUser = (req, res) => {
@@ -9,9 +8,18 @@ const getAllUser = (req, res) => {
 
 const createUser = async (req, res) => {
     let { userName } = req.query;
-
     try {
         const user = await createUserProfile(userName);
+        res.status(200).send(user);
+    } catch (error) {
+        console.log(error)
+    }
+}
+const updateEmailPassword = async (req, res) => {
+    let { userName } = req.query;
+    let { email, password } = req.body;
+    try {
+        const user = await createEmailPassword(userName, email, password);
         res.status(200).send(user);
     } catch (error) {
         console.log(error)
@@ -48,8 +56,15 @@ const updateUser = async (req, res) => {
 }
 
 
+
+
+
+
+
 module.exports = {
     getAllUser,
     createUser,
+    updateEmailPassword,
     updateUser
 }
+
