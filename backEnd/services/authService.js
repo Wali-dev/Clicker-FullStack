@@ -17,7 +17,7 @@ module.exports.userLogins = async (userName, email, password) => {
                 if (isMatch) {
 
                     //GENERATE JWT TOKEN
-                    const token = jwt.sign({ userID: user._id }, JWT_KEY, { expiresIn: '1d' });
+                    const token = jwt.sign({ userName: user.userName }, JWT_KEY, { expiresIn: '1d' });
                     return token;
                 } else {
                     return ("Email or password does not match");
