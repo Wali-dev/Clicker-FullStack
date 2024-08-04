@@ -1,9 +1,20 @@
 
-const { createUserProfile, createEmailPassword, updateUserProfile } = require("../services/userService");
+const { createUserProfile, createEmailPassword, updateUserProfile, getOneProfile } = require("../services/userService");
 
 
 const getAllUser = (req, res) => {
     res.send("this is the all route")
+}
+const getOneUser = async (req, res) => {
+    const { userName } = req.query;
+    try {
+        const user = await getOneProfile(userName);
+        res.status(200).send(user);
+    } catch (error) {
+        return error;
+
+    }
+
 }
 
 const createUser = async (req, res) => {
@@ -65,6 +76,7 @@ module.exports = {
     getAllUser,
     createUser,
     updateEmailPassword,
-    updateUser
+    updateUser,
+    getOneUser
 }
 
