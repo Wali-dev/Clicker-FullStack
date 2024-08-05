@@ -1,5 +1,5 @@
 
-const { userLogins } = require("../services/authService");
+const { userLogins, changeUserPassword, resetUserPassword } = require("../services/authService");
 
 
 const userLogin = async (req, res) => {
@@ -17,6 +17,35 @@ const userLogin = async (req, res) => {
         res.send(error)
     }
 }
+const changePassword = async (req, res) => {
+    const { password } = req.body;
+    try {
+        if (password) {
+            await changeUserPassword(password);
+            res.send({ "status": "Success", "message": "Passwords changed succesfully" })
+        } else {
+            res.send({ "status": "Failed", "message": "Failed to change password" });
+        }
+    } catch (error) {
+        res.send(error)
+    }
+}
+
+const resetEmailandPasswordEmail = async (req, res) => {
+
+}
+const userPasswordReset = async (req, res) => {
+    const { userName, token } = req.params;
+    const { password } = req.body;
+    try {
+        const status = await resetUserPassword(userName, token, password);
+        res.send({ "status": "Success", "message": "Password reset Successfully", status })
+
+    } catch (error) {
+        res.send({ "status": "Failed", "message": "Password reset unsuccessfull" })
+    }
+
+}
 
 
 
@@ -24,6 +53,9 @@ const userLogin = async (req, res) => {
 
 
 module.exports = {
-    userLogin
+    userLogin,
+    changePassword,
+    resetEmailandPasswordEmail,
+    userPasswordReset
 }
 
