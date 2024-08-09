@@ -20,9 +20,9 @@ module.exports.userLogins = async (userName, email, password) => {
 
                     //GENERATE JWT TOKEN
                     const token = jwt.sign({ userName: user.userName }, JWT_KEY, { expiresIn: '1d' });
-                    return token;
+                    return ({ "status": "Success", "message": "Login is Succesfull", "token": token });
                 } else {
-                    return ("Email or password does not match");
+                    return ({ "status": "Failed", "message": "Email or password does not match" });
                 }
             } else {
                 return ("User doesn't exists");

@@ -8,7 +8,7 @@ const userLogin = async (req, res) => {
         if (password && (userName || email)) {
             const token = await userLogins(userName, email, password);
             if (token) {
-                res.send({ "status": "Success", "message": "Login is Succesfull", "token": token });
+                res.send(token);
             }
         } else {
             res.send({ "status": "Failed", "message": "password, email or userName is required" });
