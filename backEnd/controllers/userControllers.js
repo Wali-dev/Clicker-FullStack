@@ -22,8 +22,8 @@ const createUser = async (req, res) => {
     try {
         const user = await createUserProfile(userName);
         if (user) {
-            // res.send(user);
-            console.log(user)
+            res.send(user);
+            // console.log(user)
         }
         else {
             res.status(500);
