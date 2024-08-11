@@ -21,7 +21,13 @@ const createUser = async (req, res) => {
     let { userName } = req.query;
     try {
         const user = await createUserProfile(userName);
-        res.status(200).send(user);
+        if (user) {
+            // res.send(user);
+            console.log(user)
+        }
+        else {
+            res.status(500);
+        }
     } catch (error) {
         console.log(error)
     }

@@ -15,9 +15,9 @@ module.exports.createUserProfile = async (userName) => {
 
     try {
         const user = await userProfile.create({ userName });
-        return user;
+        return ({ "status": "Success", "message": "User created succesfully", "user": user });
     } catch (error) {
-        console.log(error);
+        return ({ "status": "Failed", "message": error.errors[0].message });
     }
 };
 
