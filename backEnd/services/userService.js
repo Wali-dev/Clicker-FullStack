@@ -28,7 +28,7 @@ module.exports.createEmailPassword = async (userName, email, password) => {
             // CHECKING IF EMAIL EXISTS ON THE DATABASE
             const user = await authProfile.findOne({ where: { email } });
             if (user) {
-                return "email exixsts";
+                return ({ "status": "Failed", "message": "email already exists" });
 
             } else {
                 // CREATE THE SALT TO HASH
@@ -44,7 +44,7 @@ module.exports.createEmailPassword = async (userName, email, password) => {
                 const auth = await authProfile.create({
                     ...authDetails
                 });
-                return auth;
+                return ({ "status": "Success", "message": "email and password created succesfully", "auth": auth });
             }
         }
         else {

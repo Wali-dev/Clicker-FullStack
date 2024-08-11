@@ -37,7 +37,7 @@ const updateEmailPassword = async (req, res) => {
     let { email, password } = req.body;
     try {
         const user = await createEmailPassword(userName, email, password);
-        res.status(200).send(user);
+        res.send(user);
     } catch (error) {
         console.log(error)
     }
