@@ -40,11 +40,14 @@ module.exports.createEmailPassword = async (userName, email, password) => {
                     password: hashedPassword
                 }
 
+                //CREATE THE TOKEN FOR USER EMAIL SETUP
+                const token = jwt.sign({ userName }, JWT_KEY, { expiresIn: '30m' })
+
                 //CREATE THE USERS AUTH DATABASE
                 const auth = await authProfile.create({
                     ...authDetails
                 });
-                return ({ "status": "Success", "message": "email and password created succesfully", "auth": auth });
+                return ({ "status": "Success", "message": "email and password created succesfully", "auth": auth, "token": token });
             }
         }
         else {
